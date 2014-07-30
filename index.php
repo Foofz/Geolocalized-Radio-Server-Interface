@@ -14,8 +14,10 @@
 	Type:
 		<label><input type="radio" name="type" value="traffic" checked="checked" />Traffic</label>
 		<label><input type="radio" name="type" value="advertisement" />Advertisement</label> <br/>
+	Name:
+		<input name="name" id="name" /> <br/>
 	Message:
-		<input name="message" />
+		<input name="message" id="message" />
 		<input name="submit" type="button" value="Submit Changes"/>
 	</div>
 </body>

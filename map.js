@@ -16,9 +16,17 @@ function startup(){
   });
 }
 
+//Add a new hotSpot:
 function placeMarker(location) {
   var marker = new google.maps.Marker({
       position: location,
       map: map
   });
+
+  var hotSpot = {
+  	name: document.getElementById("name").value
+  	message: document.getElementById("message").value
+  };
+
+  //alert(hotSpot.message);
 }
