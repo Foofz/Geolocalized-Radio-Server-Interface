@@ -24,7 +24,7 @@ function placeMarker(location) {
   });
 
   var hotSpot = {
-  	name: document.getElementById("name").value
+  	name: document.getElementById("name").value,
   	message: document.getElementById("message").value
   };
 
