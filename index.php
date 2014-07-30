@@ -11,7 +11,12 @@
 <body>
 	<div id="map-canvas"></div>
 	<div id="controls">
-		<input type="radio">
+	Type:
+		<label><input type="radio" name="type" value="traffic" checked="checked" />Traffic</label>
+		<label><input type="radio" name="type" value="advertisement" />Advertisement</label> <br/>
+	Message:
+		<input name="message" />
+		<input name="submit" type="button" value="Submit Changes"/>
 	</div>
 </body>
 </html>

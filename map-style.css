@@ -1,6 +1,22 @@
 #map-canvas {
-	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
 	width: 800px;
 	height: 600px;
-	left: 180px;
+	/*left: 180px;*/
+}
+
+#controls {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 25px;
+	width: 800px;
+	text-align: center;
+}
+
+input[name = "submit"] {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: 25px;
 }
