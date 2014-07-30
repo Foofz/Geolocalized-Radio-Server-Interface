@@ -23,10 +23,27 @@ function placeMarker(location) {
       map: map
   });
 
+  var type;
+  var radios = document.getElementsByName("type");
+
+  if (radios[0].checked){
+  	type = "traffic";
+  }
+
+  else {
+  	type = "advertisement";
+  }
+
   var hotSpot = {
   	name: document.getElementById("name").value,
-  	message: document.getElementById("message").value
+  	message: document.getElementById("message").value,
+  	type: type,
+  	status: "add",
+  	lat: location.lat(),
+  	long: location.lng()
   };
 
-  //alert(hotSpot.message);
+  alert(hotSpot.type);
+  alert(hotSpot.lat);
+  alert(hotSpot.long);
 }
