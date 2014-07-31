@@ -1,3 +1,7 @@
+var add = [];
+var remove = [];
+var modify = [];
+
 $(document).ready(function(){
 	startup();
 });
@@ -43,7 +47,9 @@ function placeMarker(location) {
   	long: location.lng()
   };
 
-  alert(hotSpot.type);
+  add.push(hotSpot);
+
+  /*alert(hotSpot.type);
   alert(hotSpot.lat);
-  alert(hotSpot.long);
+  alert(hotSpot.long);*/
 }
