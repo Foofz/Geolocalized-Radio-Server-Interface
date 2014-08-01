@@ -1,3 +1,6 @@
+var markers = [];
+var infoWindows = [];
+
 $(document).ready(function(){
 	startup();
 });
@@ -25,19 +28,37 @@ function startup(){
     		//Handle JSON response:
     		var results = JSON.parse(this.responseText);
     		for (var i=0; i<results.hotspots.length; i++){
-    			var image;
+    			var type, image;
     			//If traffic incident:
     			if (results.hotspots[i].type == 0){
+    				type = "Traffic";
     				image = "icons/traffic_marker.png";
     			}
     			else {
+    				type = "Advertisement";
     				image = "icons/ad_marker.png";
     			}
-    			var marker = new google.maps.Marker({
+
+    			var markerInfo = '<div class="markerInfo">'
+    			+ '<b>Name: </b>' + results.hotspots[i].name + '<br/>'
+    			+ '<b>Type: </b>' + type + '<br/>'
+    			+ '<b>Message: </b>' + results.hotspots[i].message + '<br/>'
+    			+ '<b>Lat/Long: </b>' + results.hotspots[i].lat + '/' + results.hotspots[i].long
+    			+ '</div>';
+
+    			markers[i] = new google.maps.Marker({
     				position: new google.maps.LatLng(results.hotspots[i].lat, results.hotspots[i].long),
     				icon: image,
     				map: map
     			});
+
+    			markers[i].info = new google.maps.InfoWindow({
+      				content: markerInfo
+  				});
+
+    			google.maps.event.addListener(markers[i], 'click', function() {
+    				this.info.open(map,this);
+  				});
     		}
     	}
     };
