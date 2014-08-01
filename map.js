@@ -76,7 +76,7 @@ function placeMarker(location) {
   		if (ajax.readyState == 4) {   // 4 means request is finished
     		if (this.responseText == "OK"){
     			//Addition successful! Remove 'Syncing...' and re-enable map click listener
-    			alert("OK!");
+    			//alert(document.getElementById("name").value);
     		}
     		else {
     			//Error syncing:
@@ -84,7 +84,7 @@ function placeMarker(location) {
     	}
     };
 
-    ajax.open("get", "../kdtree/addHotSpot.php?name=" + $("#name").value + "&type=" + type + "&message=" + $("#message").value + "&lat=" + location.lat() + "&long=" + location.lng(), true);
+    ajax.open("get", "../kdtree/addHotSpot.php?name=" + document.getElementById("name").value + "&type=" + type + "&message=" + document.getElementById("message").value + "&lat=" + location.lat() + "&long=" + location.lng(), true);
     ajax.send(null);
 
 
