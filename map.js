@@ -53,17 +53,39 @@ function placeMarker(location) {
 	var radios = document.getElementsByName("type");
 
 	if (radios[0].checked){
-		type = "traffic";
+		type = 0;
 		image = "icons/traffic_marker.png";
 	}
 
 	else {
-		type = "advertisement";
+		type = 1;
 		image = "icons/ad_marker.png";
 	}
+
 	var marker = new google.maps.Marker({
 		position: location,
 		map: map,
 		icon: image
 	});
+
+	//Add 'Syncing... and disable map click listener here'
+
+	//Add hotspot to database:
+	var ajax = new XMLHttpRequest();
+	ajax.onreadystatechange = function() {
+  		if (ajax.readyState == 4) {   // 4 means request is finished
+    		if (this.responseText == "OK"){
+    			//Addition successful! Remove 'Syncing...' and re-enable map click listener
+    			alert("OK!");
+    		}
+    		else {
+    			//Error syncing:
+    		}
+    	}
+    };
+
+    ajax.open("get", "../kdtree/addHotSpot.php?name=" + $("#name").value + "&type=" + type + "&message=" + $("#message").value + "&lat=" + location.lat() + "&long=" + location.lng(), true);
+    ajax.send(null);
+
+
 }
